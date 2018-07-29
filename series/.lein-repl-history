@@ -1,0 +1,102 @@
+(defn digits [n]
+  (map #(Integer/parseInt (str %))  (seq (str n))))
+(defn slices [string length]
+      (apply max (map
+                 #(apply * %) (partition length 1 (digits string)))))
+(slices 49142 3)
+(defn slices [string length]
+      (partition length 1 (digits string)))
+(slices 49142 3)
+(defn slices [string length]
+      (partition length 1 (digits (read-string string))))
+(slices "49142" 3)
+(str 456)
+(doc partition)
+(mapcat (1 2 3))
+(mapcat str (1 2 3))
+(doc mapcat)
+(map str (1 2 3))
+(map str '(1 2 3))
+(str (map str '(1 2 3)))
+(map str (map str '(1 2 3)))
+(mapcat str '(1 2 3))
+(apply str '(1 2 3))
+(slices "49142" 3)
+(map (apply str (slices "49142" 3)))
+(apply str (slices "49142" 3))
+(map apply str (slices "49142" 3))
+(apply map str (slices "49142" 3))
+(defn slices [string length]
+      (apply map str (partition length 1 (digits (read-string string)))))
+(slices "36847" 3)
+(defn digits [n]
+  (map #(Integer/parseInt (str %))  (seq (str n))))
+(defn slices [string length]
+      (apply map str (partition length 1 (digits (read-string string)))))
+(slices "" 1)
+(defn slices [string length]
+      (apply map str (partition length 1 (digits (Integer/parseInt string)))))
+(slices "" 1)
+(defn slices [string length]
+      (apply map str (partition length 1 (digits string))))
+(slices "" 1)
+(defn slices [string length]
+      (apply map str (partition length 1 (digits (read-string string)))))
+(slices "" 1)
+(defn digits [n]
+  (if (re-matches (re-pattern "\\d+") str) (read-string (map #(Integer/parseInt (str %))  (seq (str n))))))
+(digits "145678")
+(digits 34578)
+(defn digits [n]
+  (if (re-matches (re-pattern "\\d+") n) ((map #(Integer/parseInt (str %))  (seq (str n)))))
+)
+(digits "4567")
+(defn digits [n]
+  (if (re-matches (re-pattern "\\d+") n) (map #(Integer/parseInt (str %))  (seq (str n)))))
+(digits "4567")
+(slices "" 1)
+(defn slices [string length]
+      (apply map str (partition length 1 (digits (read-string string)))))
+(slices "" 1)
+(defn digits [n]
+  (map #(Integer/parseInt (str %))  (seq (str n))))
+(digits 2345)
+(digits "34567")
+(defn slices [string length]
+  (if (empty? string)
+      []    
+  (apply map str (partition length 1 (digits (read-string string))))))
+(defn digits [n]
+  (map #(Integer/parseInt (str %))  (seq (str n))))
+(slices "" 1)
+(slices "123" 0)
+(defn slices [string length]
+  (cond
+    (empty? string) []
+    (= 0 length) [""]
+    :else (apply map str (partition length 1 (digits (read-string string))))))
+(slices "" 1)
+(slices "123" 0)
+(slices "123" 1000)
+(count "123")
+(count (digits 1000))
+(defn slices [string length]
+  (cond
+    (empty? string) []
+    (= 0 length) [""]
+    (< (count string) (count (digits length))) []
+    :else (apply map str (partition length 1 (digits (read-string string))))))
+(slices "123" 1000)
+(slices "123" 0)
+(slices "" 1)
+(slices "123" 3)
+(defn slices [string length]
+  (cond
+    (empty? string) []
+    (= 0 length) [""]
+    (< (count string) (count (digits length))) []
+    (= (count string) length) string
+    :else (apply map str (partition length 1 (digits (read-string string))))))
+(slices "123" 3)
+(slices "" 1)
+(set (slices "12345" 3))

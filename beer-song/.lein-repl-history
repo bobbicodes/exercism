@@ -1,0 +1,500 @@
+ (cond
+    (= num 1)
+      "1 bottle of beer on the wall, 1 bottle of beer.
+Take it down and pass it around, no more bottles of beer on the wall."
+    (= num 0)
+      "No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall."
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.")))
+(verse 0)
+(verse 1)
+(verse 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0)
+  ([start end]
+     (loop [n start]
+       (if (= n 0)
+           (verse 0)
+           (do
+             (verse n)
+             (recur (- n 1))))))
+)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (if (= n 0)
+           (verse 0)
+           (do
+             (verse n)
+             (recur (- n 1)))))))
+(sing 0)
+(sing 1)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (if (= n end)
+           (verse 0)
+           (do
+             (verse n)
+             (recur (- n 1)))))))
+(sing 0)
+(sing 1)
+(sing 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (if (= n end)
+           (verse n)
+           (do
+             (verse n)
+             (recur (- n 1)))))))
+(sing 1)
+(sing 4 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (if (= n end)
+           (verse n)
+           (doall
+             (verse n)
+             (recur (- n 1)))))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (if (= n end)
+           (verse n)
+           (dorun
+             (verse n)
+             (recur (- n 1)))))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (if (= n end)
+           (verse n)
+           (run
+             (verse n)
+             (recur (- n 1)))))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (if (= n end)
+           (verse n)
+           (run!
+             (verse n)
+             (recur (- n 1)))))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (> n end)
+           (verse n)
+             (recur (- n 1)))))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (> n end)
+           (verse n)
+             (recur (- n 1))))))
+(sing 1)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (>= n end)
+           (verse n)
+             (recur (- n 1))))))
+(sing 1)
+(sing 4 2)
+(defn cd [start end]
+  (loop [x 10]
+   (when (> x 1)
+    (println x)
+    (recur (- x 1))))
+)
+(cd 10 5)
+(defn cd [start end]
+  (loop [x 10]
+   (when (> x end)
+    (println x)
+    (recur (- x 1)))))
+(cd 10 5)
+(defn cd [start end]
+  (loop [x 10]
+   (when (>= x end)
+    (println x)
+    (recur (- x 1)))))
+(cd 10 5)
+(defn cd [start end]
+  (loop [x 10]
+   (when (>= x end)
+    (verse x)
+    (recur (- x 1)))))
+(cd 10 5)
+(verse 10)
+(defn cd [start end]
+  (loop [x 10]
+   (when (>= x end)
+    (println (verse x))
+    (recur (- x 1)))))
+(cd 10 5)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (>= n end)
+           (println (verse n))
+             (recur (- n 1))))))
+(sing 10 5)
+(sing 1)
+(verse 1)
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 1)
+      "1 bottle of beer on the wall, 1 bottle of beer.
+Take it down and pass it around, no more bottles of beer on the wall."
+    (= num 0)
+      "No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall."
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.")))
+(verse 1)
+(def verse-1
+  (str "1 bottle of beer on the wall, 1 bottle of beer.\n"
+       "Take it down and pass it around, no more bottles of beer on the wall.\n"))
+(verse-1)
+verse-1
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall."
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.")))
+)
+(verse 1)
+verse-1
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall."
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall."))))
+(verse 1)
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.\n"))))
+(verse 0)
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall.\n")
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.\n"))))
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall.\n")
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.\n")))
+(verse 1)
+(:use 'beer-song)
+(verse 1)
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 2)
+      (str "2 bottles of beer on the wall, 2 bottles of beer.
+" "Take one down and pass it around, 1 bottle of beer on the wall.\n")
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall.\n")
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.\n")))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (>= n end)
+           (println (verse n))
+             (recur (- n 1))))))
+(sing 4 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (>= n end)
+           (str (verse n))
+             (recur (- n 1))))))
+(sing 4 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (>= n end)
+           (pr-str (verse n))
+             (recur (- n 1))))))
+(sing 4 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (loop [n start]
+       (when (>= n end)
+           (println (verse n))
+             (recur (- n 1))))))
+(sing 4 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse n))
+             (sing (dec start) end)))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start))
+             (sing (dec start) end)))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start))
+             (sing (dec start) end))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (sing (dec start) end)))))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (sing (dec start) end))))
+(sing 4 2)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (join "\n" [(verse start) (sing (dec start) end)])))
+)
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (join "\n" [(verse start) (sing (dec start) end)])))
+)
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 2)
+      (str "2 bottles of beer on the wall, 2 bottles of beer.
+" "Take one down and pass it around, 1 bottle of beer on the wall.\n")
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall.\n")
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.\n")))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (join "\n" [(verse start) (sing (dec start) end)]))))
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 2)
+      (str "2 bottles of beer on the wall, 2 bottles of beer.
+" "Take one down and pass it around, 1 bottle of beer on the wall.\n")
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall.\n")
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.\n")))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (s/join "\n" [(verse start) (sing (dec start) end)]))))
+(ns beer-song
+  (:require [clojure.string :as s]))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (s/join "\n" [(verse start) (sing (dec start) end)]))))
+(defn verse
+ "Returns the nth verse of the song."
+ [num]
+ (cond
+    (= num 2)
+      (str "2 bottles of beer on the wall, 2 bottles of beer.
+" "Take one down and pass it around, 1 bottle of beer on the wall.\n")
+    (= num 1)
+      (str "1 bottle of beer on the wall, 1 bottle of beer.
+" "Take it down and pass it around, no more bottles of beer on the wall.\n")
+    (= num 0)
+      (str "No more bottles of beer on the wall, no more bottles of beer.
+" "Go to the store and buy some more, 99 bottles of beer on the wall.\n")
+    :else
+      (str num " bottles of beer on the wall, " num " bottles of beer.
+Take one down and pass it around, " (- num 1) " bottles of beer on the wall.\n")))
+(defn sing
+  "Given a start and an optional end, returns all verses in this interval. If
+  end is not given, the whole song from start is sung."
+  ([start]
+     (sing start 0))
+  ([start end]
+     (if (= start end)
+         (verse start)
+             (s/join "\n" [(verse start) (sing (dec start) end)]))))
+(sing 4 2)

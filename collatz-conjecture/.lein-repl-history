@@ -1,0 +1,48 @@
+(def counter (atom 0))
+@counter
+(swap! counter inc)
+@counter
+(reset! counter 0)
+(defn next-step [num step]
+(cond
+(even? n) (next-step (/ n 2) (inc step))
+(odd? n) (next-step (inc (* n 3)) (inc step))
+(= n 1) step))
+(defn next-step [num step]
+   (cond
+    (even? num) (next-step (/ num 2) (inc step))
+    (odd? n) (next-step (inc (* num 3)) (inc step))
+    (= num 1) step))
+(defn next-step [num step]
+   (cond
+    (even? num) (next-step (/ num 2) (inc step))
+    (odd? num) (next-step (inc (* num 3)) (inc step))
+    (= num 1) step))
+(next-step 1 0)
+(use 'collatz-conjecture)
+(defn collatz [num step]
+   (cond
+    (even? num) (collatz (/ num 2) (inc step))
+    (odd? num) (collatz (inc (* num 3)) (inc step))
+    (= num 1) step))
+(collatz 16)
+(collatz 16 0)
+(defn collatz [num step]
+   (cond
+    (= num 1) step
+    (even? num) (collatz (/ num 2) (inc step))
+    (odd? num) (collatz (inc (* num 3)) (inc step))
+    (= num 1) step))
+(collatz 16 0)
+(collatz 1 0)
+(collatz 12 0)
+(collatz 1000000 0)
+(collatz 0 0)
+(collatz -50 0)
+(defn collatz [num step]
+   (cond
+    (= num 1) step
+    (even? num) (collatz (/ num 2) (inc step))
+    (odd? num) (collatz (inc (* num 3)) (inc step))
+    (= num 1) step))
+(collatz 12 0)
